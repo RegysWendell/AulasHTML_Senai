@@ -1,7 +1,20 @@
 h1 {
-    color: blue;
+    background-color: blue;
 }
+
+#titulo-roxo {
+    background-color: purple;
+}
+
+.titulo-rosa {
+    background-color: pink;
+}
+
 section {
-    background-color: aqua;
+    background-color: aquamarine;
     padding: 10px;
+}
+
+a {
+    color:blue;
 }
