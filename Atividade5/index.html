@@ -9,6 +9,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
 <body class="container p-10"></body>
+</head>
 <main>
     <h1>Testes com JavaScript</h1>
     <div class="container">
@@ -16,16 +17,12 @@
         <form>
             <div>
                 <label class="form-label" for="nome">Digite seu nome:</label>
-                <input class="form-control p-3" type="text" id="nome">
+                <input class="form-control p-3" type="text" id="nome" placeholder="Digite seu nome aqui">
             </div>
             <button class="btn btn-primary" onclick="imprimirNome()">Enviar dados</button>
         </form>
         <!--Comentário HTML - Comentar CTRL + ;-->
-        <script>
-            function imprimirNome() {
-                window.alert("Seu formulário foi enviado")
-            }
-        </script>
+        <script src="formulario.js"></script>
     </div>
 </main>
 </body>
