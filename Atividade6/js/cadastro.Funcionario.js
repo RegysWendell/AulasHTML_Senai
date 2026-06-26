@@ -4,7 +4,7 @@ function cadastrarFuncionario() {
     let cargo = document.getElementById("cargo-funcionario").value;
 
     if (nome.trim() === "" || cargo.trim() === "") {
-        alert("Por favor, preencha todos os campos antes de cadastrar.");
+        window.alert("Por favor, preencha todos os campos antes de cadastrar.");
         return;
     }
 
@@ -18,7 +18,7 @@ function cadastrarFuncionario() {
     cardFuncionario.style.margin = "10px 0";
     cardFuncionario.style.borderRadius = "5px";
 
-    cardFuncionario.innerHTML =
+    cardFuncionario.innerHTML=
         "<p><strong>Nome:</strong> " + nome + "</p>" +
         "<p><strong>Cargo:</strong> " + cargo + "</p>" +
         "<p><strong>Carga Horária:</strong> " + horas + "h semanais</p>";
@@ -29,3 +29,4 @@ function cadastrarFuncionario() {
     document.getElementById("nome-funcionario").value = "";
     document.getElementById("cargo-funcionario").value = "";
     document.getElementById("horas-funcionario").selectedIndex = 0; // Volta para a primeira opção (20h)
+}
