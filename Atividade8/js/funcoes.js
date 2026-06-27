@@ -1,7 +1,7 @@
 function soma() {
     let primeiroNumero = document.getElementById("primeiro-numero").value;
     let segundoNumero = document.getElementById("segundo-numero").value;
-    
+
     let resultado = Number(primeiroNumero) + Number(segundoNumero);
 
     document.getElementById("resultado").innerText = resultado;
@@ -59,68 +59,49 @@ function salvarHistorico(nomeDaFuncao, num1, num2, resultado) {
     historicoLocal.push(operacao);
 
     localStorage.setItem("historicoCalculos", JSON.stringify(historicoLocal));
-
-function calculoImposto(){
-    let precoProduto
-    let imposto1 = 0.2
-    let imposto2 = 0.9
-    
-    valorInicial = (valorInicial * 0.2) + valorInicial
-    
-
-    if (precoProduto<50){
-        precoImposto1 = precoProduto + (precoProduto * 0.2)
-    }
-    else {
-        precoImposto1 = ((precoProduto + (precoProduto * 0.2)+())
-       let resultado =  ((precoProduto*imposto1)+precoProduto*(imposto2))
-    
-    }
-
-    let resultado =
-
-    /**
-     * estrutura if
-     * 
-     * if (condição) {
-     *  execução verdadeira
-     * } else {
-     *  execução falsa
-     * }
-     */
-    
-
-
-}
-   
-
-
 }
 
-/*
-    Hitórico de função utilizada
-    Função: soma
+function apagarLocalStorage() {
 
-    Histórico de números digitados
-    Ex -> Primeiro numero: 10, SegundoNumero: 10
+    let confirmaApagar = window.confirm("Você deseja apagar seu histórico?")
 
-    Histórico de resultados obtidos:
-    Ex -> 20
+    if (confirmaApagar) {
+        localStorage.clear();
+    }
+}
 
-    apresentado num console.log
-    _____________________________________________________________________________
+function calculoImposto() {
+    let valorInicial = document.getElementById("valor-inicial").value;
+    let valorComImposto;
 
-    Nova função de calculo de imposto de importação
+    let valorNum = Number(valorInicial);
 
-    se o produto custar menos que $50 (cinquenta dolares)
-    Você vai ter que pagar o valor produto, mais 20%
+    if(valorNum <= 50) {
+        valorComImposto = valorNum + (valorNum * 0.20);
+    } else {
+        let primeiraTaxa = valorNum + (valorNum * 0.20);
+        valorComImposto = primeiraTaxa + (primeiraTaxa * 0.90);
+    }
 
-    se o produto custar mais do que$ 50
-    Você vai ter que pagar o valor do produto +20%, depois mais 90% sobre o produto
+    valorComImposto = Number(valorComImposto);
 
-    Seja salvo num novo objeto, dentro do local storage, seu histórico de compras
+    salvarHistoricoImposto(valorInicial, valorComImposto);
 
-    Ex: histórico de calculos matemáticos, e histórico de conversões
+    document.getElementById("resultado-imposto").innerText = valorComImposto;
+}
 
+function salvarHistoricoImposto(valorInicial, valorComImposto) {
+    console.log("Valor inicial: " + valorInicial);
+    console.log("valor com imposto: " + valorComImposto);
+    console.log("--------------------------------------");
 
-    /*
+    let operacao = {
+        valorInicial,
+        valorComImposto
+    };
+
+    let historicoLocal = JSON.parse(localStorage.getItem("historicoImposto")) || [];
+    historicoLocal.push(operacao);
+
+    localStorage.setItem("historicoImposto", JSON.stringify(historicoLocal));
+}
